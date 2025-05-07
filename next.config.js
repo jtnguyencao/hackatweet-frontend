@@ -1,11 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: "export", // Obligatoire
+  trailingSlash: true, // Important pour S3
   images: {
-    domains: [],
+    unoptimized: true // Désactive l'optimisation d'image (nécessaire pour static)
   },
-  output: 'export', // Required for static S3 hosting
-  trailingSlash: true, // Needed for proper S3 path resolution
+  // Ajoutez ceci si vous utilisez des liens dynamiques
+  experimental: {
+    appDir: false // Désactive le nouveau système de routing si non utilisé
+  }
 };
 
 module.exports = nextConfig;

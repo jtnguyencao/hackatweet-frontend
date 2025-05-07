@@ -18,14 +18,15 @@ phases:
     commands:
       - echo "Building application..."
       - yarn build
-      #- yarn export
-      - aws s3 sync out/ s3://jamesboy-ultimatetimer-front --delete
+      - yarn export
 
   post_build:
     commands:
       - echo Build completed!
       - echo Creating deployment package...
       - rm -rf node_modules
+      - ls -la out/
+      - aws s3 sync out/ s3://jamesboy-ultimatetimer-front --delete
 
 artifacts:
   files:
