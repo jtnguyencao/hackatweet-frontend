@@ -1,0 +1,37 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo Installing dependencies...
+      - yarn install --frozen-lockfile --cache-folder .ycache
+
+  pre_build:
+    commands:
+      - echo Building application...
+      - yarn cache clean
+      - yarn lint
+
+  build:
+    commands:
+      - yarn build
+
+  post_build:
+    commands:
+      - echo Build completed!
+      - echo Creating deployment package...
+      - rm -rf node_modules
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: .next
+  discard-paths: no
+
+cache:
+  paths:
+    - node_modules/**/*
+    - .ycache/**/*
+    - .next/cache/**/*
