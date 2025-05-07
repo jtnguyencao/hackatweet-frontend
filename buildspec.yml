@@ -18,7 +18,7 @@ phases:
     commands:
       - echo "Building application..."
       - yarn build
-      - yarn export
+      #- yarn export
       - aws s3 sync out/ s3://jamesboy-ultimatetimer-front --delete
 
   post_build:
