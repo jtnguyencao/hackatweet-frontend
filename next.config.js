@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   output: "export", // Obligatoire
   trailingSlash: true, // Important pour S3
   images: {
