@@ -27,7 +27,7 @@ function Home() {
       return;
     }
 
-    fetch(`https://kcdmsmye4m.eu-west-1.awsapprunner.com/tweets/all/${user.token}`)
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tweets/all/${user.token}`)
       .then(response => response.json())
       .then(data => {
         data.result && dispatch(loadTweets(data.tweets));
@@ -41,7 +41,7 @@ function Home() {
   };
 
   const handleSubmit = () => {
-    fetch(`https://kcdmsmye4m.eu-west-1.awsapprunner.com/tweets`, {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tweets`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token: user.token, content: newTweet }),
