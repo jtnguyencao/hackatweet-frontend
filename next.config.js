@@ -1,18 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  trailingSlash: true,
+  reactStrictMode: true,
+  output: 'export', // Enable static export mode
   images: {
-    unoptimized: true
+    loader: 'akamai', // Use static image loader
+    path: '',          // No path prefix for images
   },
-  transpilePackages: [
-    '@ant-design/icons-svg',
-    '@ant-design/icons',
-    'antd',
-    'rc-util',
-    'rc-pagination',
-    'rc-picker'
-  ]
 };
-
-module.exports = nextConfig;
