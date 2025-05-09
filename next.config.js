@@ -1,15 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: "export", // Obligatoire
-  trailingSlash: true, // Important pour S3
+  output: 'export', // Enable static export mode
   images: {
-    unoptimized: true // Désactive l'optimisation d'image (nécessaire pour static)
+    loader: 'akamai', // Use static image loader
+    path: '',          // No path prefix for images
   },
-  // Ajoutez ceci si vous utilisez des liens dynamiques
-  experimental: {
-    appDir: false // Désactive le nouveau système de routing si non utilisé
-  }
 };
-
-module.exports = nextConfig;
