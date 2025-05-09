@@ -30,7 +30,7 @@ function Hashtag() {
 
     setQuery('#' + hashtag);
 
-    fetch(`https://kcdmsmye4m.eu-west-1.awsapprunner.com/tweets/hashtag/${user.token}/${hashtag}`)
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tweets/hashtag/${user.token}/${hashtag}`)
       .then(response => response.json())
       .then(data => {
         data.result && dispatch(loadTweets(data.tweets));

@@ -20,7 +20,7 @@ function SignUp() {
   const [password, setPassword] = useState('');
 
   const handleSubmit = () => {
-    fetch(`https://kcdmsmye4m.eu-west-1.awsapprunner.com/users/signup`, {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ firstName, username, password }),

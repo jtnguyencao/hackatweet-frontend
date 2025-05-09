@@ -19,7 +19,7 @@ function SignIn() {
   const [password, setPassword] = useState('');
 
   const handleSubmit = () => {
-    fetch(`https://kcdmsmye4m.eu-west-1.awsapprunner.com/users/signin`, {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/users/signin`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
